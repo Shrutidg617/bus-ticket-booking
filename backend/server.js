@@ -126,3 +126,4 @@ app.delete("/api/bookings/:id", async (req, res) => {
 app.listen(5000, () => {
     console.log("server running on http://localhost:5000");
 });
+module.exports = app;
