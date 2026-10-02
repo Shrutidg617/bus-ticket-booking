@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 
+const api_url = import.meta.env.VITE_API_URL;
+
 function App() {
     const [source, setSource] = useState("");
     const [destination, setDestination] = useState("");
@@ -17,7 +19,7 @@ function App() {
     const searchBuses = async () => {
 
         const response = await fetch(
-            `http://localhost:5000/api/buses/search?source=${source}&destination=${destination}`
+            `${api_url}/api/buses/search?source=${source}&destination=${destination}`
         );
 
         const data = await response.json();
@@ -33,7 +35,7 @@ function App() {
         }
 
         const response = await fetch(
-            "http://localhost:5000/api/bookings",
+            `${api_url}/api/bookings`,
             {
                 method: "POST",
                 headers: {
@@ -68,7 +70,7 @@ function App() {
     const viewBookings = async () => {
 
         const response = await fetch(
-            "http://localhost:5000/api/bookings"
+            `${api_url}/api/bookings`
         );
 
         const data = await response.json();
@@ -79,7 +81,7 @@ function App() {
     const cancelBooking = async (id) => {
 
         const response = await fetch(
-            `http://localhost:5000/api/bookings/${id}`,
+            `${api_url}/api/bookings/${id}`,
             {
                 method: "DELETE"
             }
