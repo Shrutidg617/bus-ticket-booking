@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 
-const api_url = import.meta.env.VITE_API_URL;
+const api_url = (import.meta.env.VITE_API_URL || "").replace(/\/+$/, "");
 
 function App() {
     const [source, setSource] = useState("");
