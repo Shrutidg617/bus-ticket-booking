@@ -23,3 +23,7 @@ values
 ('Neeta Travels', 'Pune', 'Mumbai', '10:00', '14:00', 650, 40),
 ('MSRTC Express', 'Pune', 'Nashik', '08:00', '12:30', 450, 40),
 ('Volvo Travels', 'Mumbai', 'Pune', '09:00', '13:00', 700, 40);
+
+alter table bookings
+add constraint unique_bus_seat
+unique (bus_id, seat_number);
